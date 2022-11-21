@@ -95,7 +95,7 @@ def countVehicle(qtd_small_cars, qtd_big_cars):
         for cnt in contours:
             area = cv2.contourArea(cnt)
 
-            # contagem de carros
+            # contagem de carros pequenos
 
             if area > minArea and area <= maxArea:
                 x, y, w, h = cv2.boundingRect(cnt)
@@ -132,6 +132,8 @@ def countVehicle(qtd_small_cars, qtd_big_cars):
                     objects.append(p)
                     pid += 1
                 cv2.circle(roi, (cx, cy), 5, CENTROID_COLOR, -1)
+
+            # contagem de carros grandes
 
             elif area > maxArea:
 
